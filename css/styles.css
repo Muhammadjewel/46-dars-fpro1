@@ -1,4 +1,7 @@
 :root {
+  --light-bg: #fefcf7;
+  --text-color-dark: #333d4b;
+  --font-family-fancy: "Fraunces", "Times New Roman", serif;
 }
 
 /* GENERAL */
@@ -21,7 +24,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Arial", sans-serif;
-  background-color: #fff;
+  background-color: var(--light-bg);
 }
 
 img {
@@ -43,9 +46,96 @@ img {
 
 /* CONTAINER */
 .container {
-  max-width: 900px;
-  padding-left: 50px;
-  padding-right: 50px;
+  width: 100%;
+  max-width: 1340px;
+  padding-left: 24px;
+  padding-right: 24px;
   margin-left: auto;
   margin-right: auto;
+}
+
+
+/* SITE-HEADER */
+.site-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  padding-bottom: 40px;
+}
+
+.site-header__logo {
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.site-header__logo-img {
+  display: block;
+}
+
+.site-header__toggler {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  background-image: url("../img/site-header-toggler-burger.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.site-header--open .site-header__toggler {
+  background-image: url("../img/site-header-toggler-close.svg");
+}
+
+.site-header__sitenav {
+  display: none;
+}
+
+.site-header--open .site-header__sitenav {
+  display: block;
+}
+
+
+/* SITENAV */
+.sitenav {
+  position: absolute;
+  z-index: 1;
+  left: -24px;
+  right: -24px;
+  top: 100%;
+  height: calc(100vh - 90px);
+  overflow: auto;
+  padding: 40px 24px;
+  font-size: 24px;
+  line-height: 32px;
+  font-family: var(--font-family-fancy);
+  font-weight: 900;
+  text-align: center;
+  background-image: linear-gradient(0deg, rgba(254, 252, 247, 0.5) 0%, #FEFCF7 55.94%);
+}
+
+.sitenav__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sitenav__item:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.sitenav__link {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--text-color-dark);
+}
+
+.sitenav__link:active {
+  opacity: 0.6;
 }
